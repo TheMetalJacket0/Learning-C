@@ -1,0 +1,55 @@
+#include<stdio.h>
+int caculatebytes(char, int);
+void findtotalmemory(int);
+int main(void){
+    int value,bytes;
+    char format;
+    
+    scanf("%c %d",&format,&value);
+    
+    findtotalmemory(caculatebytes(format,value));
+    
+    
+    return 0;
+}
+int caculatebytes(char c, int x){
+    int total = 0;
+    if(c == 'i'){
+        total = sizeof(int) * x;
+        
+        
+    }else if(c == 's'){
+        total = sizeof(short) *x;
+        
+    }else if(c == 'c'){
+        total = sizeof(char) *x;
+        
+        
+    }else if(c == 'd'){
+        total = sizeof(double)*x;
+    }
+    return total;
+    
+    
+}
+void findtotalmemory(int x){
+        int b,kb,mb;
+        mb = x /(1000*1000);
+        kb = (x/1000)-(mb*1000);
+        b = x%1000;
+        if(mb !=0){
+            printf("%d MB and %d KB and %d B",mb,kb,b);
+        }else if(mb == 0 && kb !=0){
+            printf("%d KB and %d B",kb,b);
+            
+        }
+        
+        
+        
+    
+ 
+    
+    
+    
+    
+}
